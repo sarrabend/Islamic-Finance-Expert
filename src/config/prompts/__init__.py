@@ -1,5 +1,4 @@
 import os
-
 from .utils import load_prompt
 
 # Define paths to the `.md` files
