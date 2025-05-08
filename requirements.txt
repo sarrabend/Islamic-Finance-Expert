@@ -1,0 +1,12 @@
+langchain==0.3.17
+markdown==3.7.0
+beautifulsoup4==4.13.1
+PyPDF2==3.0.1
+pdfplumber==0.11.5
+PyMuPDF==1.25.2
+google-ai-generativelanguage==0.6.15
+mistralai
+langchain-mistralai
+langchain-qdrant
+
+fastapi
