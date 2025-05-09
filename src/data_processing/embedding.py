@@ -1,5 +1,6 @@
 from langchain_mistralai import MistralAIEmbeddings
-from ..config import MISTRAL_API_KEY, QDRANT_URL, QDRANT_API_KEY, HF_TOKEN
+from langchain_openai import OpenAIEmbeddings
+from ..config import MISTRAL_API_KEY, QDRANT_URL, QDRANT_API_KEY, HF_TOKEN, OPENAI_API_KEY
 # from langchain_qdrant import QdrantVectorStore
 from tqdm import tqdm
 from qdrant_client import QdrantClient
@@ -7,12 +8,13 @@ from qdrant_client.http.models import Distance, VectorParams, PointStruct
 from langchain_core.documents import Document
 from uuid import uuid4
 
-embeddings = MistralAIEmbeddings(
-    model="mistral-embed",
-    api_key=MISTRAL_API_KEY
-)
+# embeddings = MistralAIEmbeddings(
+#     model="mistral-embed",
+#     api_key=MISTRAL_API_KEY
+# )
 
-
+print(OPENAI_API_KEY)
+embeddings = OpenAIEmbeddings(model="text-embedding-ada-002", api_key=OPENAI_API_KEY)
 
 
 def embed_text(text):
@@ -36,7 +38,7 @@ def prepare_docs(chunks):
 
 
 
-def upload_qdrant(chunks, collection_name, VECTOR_SIZE=1024, DISTANCE=Distance.COSINE):
+def upload_qdrant(chunks, collection_name, VECTOR_SIZE=1536, DISTANCE=Distance.COSINE):
 
     # Test connection first before trying operations
     try:

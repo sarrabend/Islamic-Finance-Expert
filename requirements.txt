@@ -8,5 +8,5 @@ google-ai-generativelanguage==0.6.15
 mistralai
 langchain-mistralai
 langchain-qdrant
-
+agno
 fastapi
