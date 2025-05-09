@@ -13,3 +13,17 @@ def format_tool_output(tool_message: Any) -> str:
 	    str: JSON formatted string representation of the tool message.
 	"""
 	return json.dumps(tool_message, ensure_ascii=False)
+
+
+def read_file(file_path: str) -> str:
+	"""
+	Read the content of a file and return it as a string.
+
+	Args:
+	    file_path (str): Path to the file to be read.
+
+	Returns:
+	    str: Content of the file.
+	"""
+	with open(file_path, "r", encoding="utf-8") as f:
+		return f.read()

@@ -1,4 +1,5 @@
 import os
+import json 
 
 # get env variables
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
@@ -10,3 +11,5 @@ QDRANT_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.a8lAS
 HF_TOKEN = os.getenv("HF_TOKEN")  # Add Hugging Face token
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+with open(os.path.join(PROJECT_PATH, "src", "config", "config.json"), "r") as f:
+    COLLECTIONS = json.load(f).get("collections", [])

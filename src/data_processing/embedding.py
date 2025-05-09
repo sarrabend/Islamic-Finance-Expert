@@ -13,7 +13,6 @@ from uuid import uuid4
 #     api_key=MISTRAL_API_KEY
 # )
 
-print(OPENAI_API_KEY)
 embeddings = OpenAIEmbeddings(model="text-embedding-ada-002", api_key=OPENAI_API_KEY)
 
 

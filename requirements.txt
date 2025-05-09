@@ -10,3 +10,4 @@ langchain-mistralai
 langchain-qdrant
 agno
 fastapi
+beautifulsoup4

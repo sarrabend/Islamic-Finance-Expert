@@ -2,7 +2,39 @@
     "collections": [
         {
             "name": "at-tamkin-al-iqtissadi-arabic",
-            "description": ""
+            "language": "ar",
+            "description": "تقرير عن التمكين الاقتصادي للمرأة في العالم العربي"
+        }, 
+        {
+            "name": "shariaa-standards",
+            "language": "en",
+            "description": "Shariaah Standards for Islamic Finance specified from the AAOIFI as of 2017"},   
+        
+        {
+            "name": "ijarah-fas-32",
+            "language": "en",
+            "description": "FAS 32 - Detailed technical specification of Ijarah and Ijarah Muntahia Bittamleek"
+        }, 
+        {
+            "name": "musharaka-fas-4", 
+            "language": "en",
+            "description": "FAS 4 - Detailed technical specification of Musharaka"
+        }, 
+        {
+            "name":"istisnaa-parallel-istisnaa-fas-10", 
+            "language": "en",
+            "description": "FAS 10 - Detailed technical specification of Istisnaa and Parallel Istisnaa"
+        }, 
+        {
+            "name": "salam-parallel-salam-fas-7",
+            "language": "en",
+            "description": "FAS 7 - Detailed technical specification of Salam and Parallel Salam"
+        }, 
+        {
+            "name":"murabaha-deferred-payment-sales-fas-28",
+            "language": "en",
+            "description": "FAS 28 - Detailed technical specification of Murabaha and other Deferred Payment Sales"
         }
-    ]
+
+        ]
 }
