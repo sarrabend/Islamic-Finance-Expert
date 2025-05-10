@@ -1,21 +1,26 @@
+import os 
+
 from agno.agent import Agent
 from agno.team import Team
 from agno.tools.reasoning import ReasoningTools
 from agno.tools.duckduckgo import DuckDuckGoTools
 
-from src.config.prompts import AGENT_INSTRUCTION, REVIEW_AGENT_INSTRUCTION, JUSTIFY_AGENT_INSTRUCTION, UPDATE_AGENT_INSTRUCTION, TRANSLATE_AGENT_INSTRUCTION, VALIDATE_AGENT_INSTRUCTION
-
+from src.config import PROJECT_PATH
+from src.config.prompts import AGENT_INSTRUCTION, ANALYZE_AGENT_INSTRUCTION, JUSTIFY_AGENT_INSTRUCTION, UPDATE_AGENT_INSTRUCTION, TRANSLATE_AGENT_INSTRUCTION, VALIDATE_AGENT_INSTRUCTION
+from src.tools.utils import read_file
 from src.agents import gpt
+from .utils import extract_response_from_agent
 from api.pydantic_models import Answer
-from src.tools.agent import tool_name
+from src.tools.agent import  list_collections, get_standards, retrieval_tool
 
 
-review_agent = Agent(
-	name="review_agent",
+analyze_agent = Agent(
+	name="analyze_agent",
 	model=gpt,
-	instructions=REVIEW_AGENT_INSTRUCTION,
+    description="AAOIFI Standards Analysis Specialist, takes the standard name and code as input",
+	instructions=ANALYZE_AGENT_INSTRUCTION,
 	response_model=Answer,
-	tools=[tool_name, ReasoningTools()],
+	tools=[retrieval_tool, ReasoningTools() , DuckDuckGoTools()],
 	structured_outputs=True
 )
 
@@ -24,7 +29,7 @@ justify_agent = Agent(
 	model=gpt,
 	instructions=JUSTIFY_AGENT_INSTRUCTION,
 	response_model=Answer,
-	tools=[tool_name, ReasoningTools()],
+	tools=[retrieval_tool, ReasoningTools() , DuckDuckGoTools()],
 	structured_outputs=True
 )
 
@@ -32,9 +37,10 @@ justify_agent = Agent(
 update_agent = Agent(
 	name="update_agent",
 	model=gpt,
+    description="AAOIFI Standards Enhancement Specialist, takes the standard name and code as input",
 	instructions=UPDATE_AGENT_INSTRUCTION,
 	response_model=Answer,
-	tools=[tool_name, ReasoningTools()],
+	tools=[retrieval_tool, ReasoningTools() , DuckDuckGoTools()],
 	structured_outputs=True
 )
 
@@ -42,26 +48,38 @@ update_agent = Agent(
 translate_agent = Agent(
 	name="translate_agent",
 	model=gpt,
+    context={"glossary": read_file(os.path.join(PROJECT_PATH, "dataset", "glossary.csv"))},
+    description="Translates text from Arabic to English and vice versa, takes the text to be translated as input",
 	instructions=TRANSLATE_AGENT_INSTRUCTION,
 	response_model=Answer,
-	tools=[tool_name, ReasoningTools()],
+	tools=[retrieval_tool, ReasoningTools(), DuckDuckGoTools()],
 	structured_outputs=True
 )
 
 validate_agent = Agent(
 	name="validate_agent",
 	model=gpt,
+    description="Validates the finacial accounting standard based on shariah standards, takes the standard name and code as input", 
 	instructions=VALIDATE_AGENT_INSTRUCTION,
 	response_model=Answer,
-	tools=[tool_name, ReasoningTools()],
+	tools=[retrieval_tool, ReasoningTools(), DuckDuckGoTools()],
 	structured_outputs=True
 )
 
 agent = Agent(
-	name="agent",
+	name="Orchestrator",
 	model=gpt,
+    team=[analyze_agent, update_agent, translate_agent, validate_agent],
 	instructions=AGENT_INSTRUCTION,
+    structured_outputs=True,
 	response_model=Answer,
-    tools=[tool_name, ReasoningTools()],
-    structured_outputs=True
+    tools=[list_collections, ReasoningTools()]
 )
+
+
+if __name__ == "__main__":
+
+    # Run the agent with a sample query
+    response = agent.run("What is the Murabaha and other deferred payment sales FAS 28?")
+    answer=extract_response_from_agent(response, agent.name)
+    print(answer)

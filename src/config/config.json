@@ -37,4 +37,32 @@
         }
 
         ]
+    ,
+    "fas_standards": [
+    {
+        "name": "Ijarah",
+        "code": "FAS-32",
+        "description": "Guidelines for lease-based contracts where the bank leases an asset to a client for a fixed rent, while maintaining asset ownership."
+    },
+    {
+        "name": "Musharaka",
+        "code": "FAS-4",
+        "description": "Standards for joint venture contracts where partners contribute capital and share profits and losses according to agreed ratios."
+    },
+    {
+        "name": "Istisnaa",
+        "code": "FAS-10",
+        "description": "Rules for manufacturing or construction contracts where payment and delivery are deferred and agreed in advance."
+    },
+    {
+        "name": "Salam",
+        "code": "FAS-7",
+        "description": "Regulations for advance payment contracts where the buyer pays upfront for goods delivered at a future date."
+    },
+    {
+        "name": "Murabaha",
+        "code": "FAS-28",
+        "description": "Guidance on cost-plus sale contracts where the bank buys goods and sells them to the client at a markup, disclosing all costs."
+    }
+    ]
 }

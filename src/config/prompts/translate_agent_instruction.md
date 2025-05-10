@@ -14,15 +14,17 @@ Follow these instructions:
 ### Glossary of Key Terms:
 {glossary}
 
+### Output format: json 
+```json
+{
+  "translated_query": "accurate Arabic version of the query",
+  "term_by_term_glossary": [
+    {
+      "english_term": "arabic_equivalent",
+    }
+    // ... additional terms
+  ]
+}
+```
 
-### Input:
-"{English user query}"
-
-### Output format:
-- **Translated Query (Arabic):**  
-  {accurate Arabic version of the query}
-
-- **Term-By_Term Glossary**
-
-
-Only provide the translation. Do not attempt to answer the query.
+**Only** provide the translation. **Do not** attempt to answer the query.

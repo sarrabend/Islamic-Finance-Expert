@@ -11,3 +11,4 @@ langchain-qdrant
 agno
 fastapi
 beautifulsoup4
+duckduckgo-search

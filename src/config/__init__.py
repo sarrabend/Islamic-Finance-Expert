@@ -13,3 +13,6 @@ HF_TOKEN = os.getenv("HF_TOKEN")  # Add Hugging Face token
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 with open(os.path.join(PROJECT_PATH, "src", "config", "config.json"), "r") as f:
     COLLECTIONS = json.load(f).get("collections", [])
+
+with open(os.path.join(PROJECT_PATH, "src", "config", "config.json"), "r") as f:
+    FAS_STANDARDS = json.load(f).get("fas_standards", [])

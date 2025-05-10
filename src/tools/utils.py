@@ -2,6 +2,8 @@ import json
 from typing import Any
 
 
+
+
 def format_tool_output(tool_message: Any) -> str:
 	"""
 	Formats the tool message into a JSON string ensuring it's always a valid str.
