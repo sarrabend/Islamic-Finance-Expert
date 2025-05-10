@@ -80,6 +80,7 @@ agent = Agent(
 if __name__ == "__main__":
 
     # Run the agent with a sample query
-    response = agent.run("What is the Murabaha and other deferred payment sales FAS 28?")
-    answer=extract_response_from_agent(response, agent.name)
-    print(answer)
+    response = agent.run("We want to make some updates on the Financial Accounting Standard N.32 (Ijarah) in order to improve its usefulness while following the islamic finances standards", show_reasoning=True)
+    print(response)
+    with open("C:/Users/pc/Desktop/IsDBI/code/Islamic-Finance-Expert/output/challenge3_response.md", "w") as f:
+        f.write(response)
