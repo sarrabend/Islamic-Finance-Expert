@@ -3,12 +3,23 @@
         {
             "name": "at-tamkin-al-iqtissadi-arabic",
             "language": "ar",
-            "description": "تقرير عن التمكين الاقتصادي للمرأة في العالم العربي"
+            "description": ""
         }, 
+        {
+            "name": "islamic-finance-contracts-use-cases", 
+            "language": "ar", 
+            "description": "Islamic finance contracts on some real use cases on the different financial standards, to be used to retrieve contract templates and previous use cases"  
+            
+        },
+        {
+            "name": "islamic-finance-products-implementation-guide", 
+            "language": "ar",
+            "description": "A guide on how to design and implement new Islamic finance products, including the different financial standards and their use cases, while adhering to shariah standards"
+        },
         {
             "name": "shariaa-standards",
             "language": "en",
-            "description": "Shariaah Standards for Islamic Finance specified from the AAOIFI as of 2017"},   
+            "description": "The main Shariaah Standards book for Islamic Finance specified from the AAOIFI as of 2017, to be checked regularly for shariah compliance check"},   
         
         {
             "name": "ijarah-fas-32",
@@ -34,6 +45,11 @@
             "name":"murabaha-deferred-payment-sales-fas-28",
             "language": "en",
             "description": "FAS 28 - Detailed technical specification of Murabaha and other Deferred Payment Sales"
+        }, 
+        {
+            "name":"fiqh-bouyoua-book", 
+            "language": "ar",
+            "description": "Islamic rules for financial practices"
         }
 
         ]

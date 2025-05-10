@@ -25,7 +25,7 @@ def ocr_to_markdown(ocr_response: OCRResponse) -> str:
 
 def parse_pdf(pdf_path: str) -> str:
     pdf_file = Path(pdf_path)
-
+    print(f"Parsing {pdf_file.name}...")
 
     uploaded_file = client.files.upload(
         file={
@@ -38,7 +38,7 @@ def parse_pdf(pdf_path: str) -> str:
     signed_url = client.files.get_signed_url(file_id=uploaded_file.id, expiry=1)
 
     pdf_response = client.ocr.process(document=DocumentURLChunk(document_url=signed_url.url), model="mistral-ocr-latest", include_image_base64=True)
-
+    print(f"Parsing {pdf_file.name} completed.")
     response_dict = json.loads(pdf_response.json())
     json_string = json.dumps(response_dict, indent=4)
     return ocr_to_markdown(pdf_response), response_dict

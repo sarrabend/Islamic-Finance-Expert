@@ -7,11 +7,11 @@ from agno.tools.duckduckgo import DuckDuckGoTools
 
 from src.config import PROJECT_PATH
 from src.config.prompts import AGENT_INSTRUCTION, ANALYZE_AGENT_INSTRUCTION, JUSTIFY_AGENT_INSTRUCTION, UPDATE_AGENT_INSTRUCTION, TRANSLATE_AGENT_INSTRUCTION, VALIDATE_AGENT_INSTRUCTION
-from src.tools.utils import read_file
-from src.agents import gpt
-from .utils import extract_response_from_agent
+from src.challenge_3.tools.utils import read_file
+from src.challenge_3.agents import gpt
+# from .utils import extract_response_from_agent
 from api.pydantic_models import Answer
-from src.tools.agent import  list_collections, get_standards, retrieval_tool
+from src.challenge_3.tools.agent import  list_collections, get_standards, retrieval_tool
 
 
 analyze_agent = Agent(
@@ -69,7 +69,7 @@ validate_agent = Agent(
 agent = Agent(
 	name="Orchestrator",
 	model=gpt,
-    team=[analyze_agent, update_agent, translate_agent, validate_agent],
+    team=[analyze_agent, update_agent, translate_agent, validate_agent, justify_agent],
 	instructions=AGENT_INSTRUCTION,
     structured_outputs=True,
 	response_model=Answer,
@@ -80,7 +80,7 @@ agent = Agent(
 if __name__ == "__main__":
 
     # Run the agent with a sample query
-    response = agent.run("We want to make some updates on the Financial Accounting Standard N.32 (Ijarah) in order to improve its usefulness while following the islamic finances standards", show_reasoning=True)
-    print(response)
+    response = agent.run("We want to make some updates on the Financial Accounting Standard N.32 (Ijarah) in order to improve its usefulness while following the islamic finances standards", debug=True)
+    # print(response)
     with open("C:/Users/pc/Desktop/IsDBI/code/Islamic-Finance-Expert/output/challenge3_response.md", "w") as f:
-        f.write(response)
+        f.write(response.content.answer)

@@ -1,4 +1,7 @@
 from agno.models.openai import OpenAIChat
+# from openai import OpenAI
+
+# gpt = OpenAI()
 
 gpt = OpenAIChat(
 	id="gpt-4o",

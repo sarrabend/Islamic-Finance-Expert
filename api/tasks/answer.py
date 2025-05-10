@@ -1,5 +1,5 @@
-from src.agents.utils import extract_response_from_agent
-from src.agents.agent import agent
+from src.challenge_3.agents.utils import extract_response_from_agent
+from src.challenge_3.agents.agent import agent
 from api.pydantic_models import Answer
 
 def answer(request: str) -> Answer:
@@ -8,8 +8,8 @@ def answer(request: str) -> Answer:
         response = agent.run(
             request
         )
-        result = extract_response_from_agent(response, "agent")
-        return Answer(**result)
+        result = response.content
+        return Answer(extract_response_from_agent(result, "agent"))
             
     except Exception as e:
         return str(e)
