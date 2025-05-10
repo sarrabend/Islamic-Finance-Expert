@@ -73,7 +73,8 @@ agent = Agent(
 	instructions=AGENT_INSTRUCTION,
     structured_outputs=True,
 	response_model=Answer,
-    tools=[list_collections, ReasoningTools()]
+    tools=[list_collections, ReasoningTools()], 
+    show_tool_calls=True,
 )
 
 
@@ -82,5 +83,4 @@ if __name__ == "__main__":
     # Run the agent with a sample query
     response = agent.run("We want to make some updates on the Financial Accounting Standard N.32 (Ijarah) in order to improve its usefulness while following the islamic finances standards", debug=True)
     # print(response)
-    with open("C:/Users/pc/Desktop/IsDBI/code/Islamic-Finance-Expert/output/challenge3_response.md", "w") as f:
-        f.write(response.content.answer)
+    print(response)

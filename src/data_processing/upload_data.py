@@ -6,7 +6,7 @@ import os
 if __name__ == "__main__":
     # pdf_path = os.path.join(PROJECT_PATH, "data", "fiqh_1.pdf")
     # md_content1, response_dict = parse_pdf(pdf_path)
-    pdf_path = os.path.join(PROJECT_PATH, "data", "فقه البيوع على المذاهب الأربعة")
+    pdf_path = os.path.join(PROJECT_PATH, "data", "islamic_financial_contracts.pdf")
     md_content, response_dict = parse_pdf(pdf_path)
     # with open("C:/Users/pc/Desktop/IsDBI/code/Islamic-Finance-Expert/output/parsed_at-altmkyn_alaqtsady.md", "r") as f:
     #     md_content=f.read()
