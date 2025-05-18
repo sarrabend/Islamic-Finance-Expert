@@ -1,0 +1,26 @@
+[project]
+name = "islamic-finance-expert"
+version = "1.0.0"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "agno==1.1.9",
+    "boto3==1.36.12",
+    "fastapi>=0.115.12",
+    "numpy==1.26.4",
+    "pandas==2.2.3",
+    "pillow==11.1.0",
+    "python-dotenv==1.0.1",
+    "python-multipart>=0.0.20",
+    "tavily-python==0.5.0",
+    "uvicorn>=0.34.0",
+    "langchain==0.3.17",
+    "markdown==3.7.0",
+    "beautifulsoup4==4.13.1",
+    "PyPDF2==3.0.1",
+    "pdfplumber==0.11.5",
+    "PyMuPDF==1.25.2", 
+   "langchain-mistralai",
+    "langchain-qdrant",
+    "openai==1.79.0",
+]
